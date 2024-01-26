@@ -21,18 +21,19 @@ function CurConv() {
     }, [baseCurrency, targetCurrencies, amount]);
 
     const getExchangeRates = async (selectedBaseCurrency, selectedTargetCurrencies, amount) => {
-        let url = `https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/${selectedBaseCurrency.toLowerCase()}.json`;
+        const timestamp = new Date().getTime();
+        let url = `https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/${selectedBaseCurrency.toLowerCase()}.json?timestamp=${timestamp}`;
         const response = await fetch(url);
         const data = await response.json();
         selectedBaseCurrency = selectedBaseCurrency.toLowerCase();
-
+    
         let newExchangeRates = {};
         for (const targetCurrency of selectedTargetCurrencies) {
             let exchangeRate = data[selectedBaseCurrency][targetCurrency.toLowerCase()];
             exchangeRate *= amount;
             newExchangeRates[targetCurrency] = exchangeRate;
         }
-
+    
         setExchangeRates(newExchangeRates);
         setLastUpdated(data.date);
     };
@@ -41,8 +42,8 @@ function CurConv() {
         let resultText = "";
         for (const targetCurrency of targetCurrencies) {
             let resultValue = Number(exchangeRates[targetCurrency]).toLocaleString(undefined, {
-                minimumFractionDigits: 8,
-                maximumFractionDigits: 8,
+                minimumFractionDigits: 12,
+                maximumFractionDigits: 12,
             });
             resultText += `${amount} ${baseCurrency} = ${resultValue} ${targetCurrency}\n`;
         }
@@ -100,8 +101,8 @@ function CurConv() {
                                 className="result-input mt-2 rounded-md ml-48"
                                 style={{ width: "550px"}}
                                 value={Number(exchangeRates[currency]).toLocaleString(undefined, {
-                                    minimumFractionDigits: 8,
-                                    maximumFractionDigits: 8,
+                                    minimumFractionDigits: 12,
+                                    maximumFractionDigits: 12,
                                 })}
                                 disabled
                             />
