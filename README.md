@@ -1,3 +1,4 @@
-# My Website Portfolio
+# Project For Oprec Exercise 2024
 
-Hi this is my simple website portfolio using ReactJs
+Currency API:
+https://github.com/fawazahmed0/currency-api
