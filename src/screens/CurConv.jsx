@@ -13,7 +13,7 @@ function CurConv() {
         BTC: 0,
         JPY: 0,
     });
-    const [amount, setAmount] = useState(1);
+    const [amount, setAmount] = useState(0);
     const [lastUpdated, setLastUpdated] = useState(null);
 
     useEffect(() => {
