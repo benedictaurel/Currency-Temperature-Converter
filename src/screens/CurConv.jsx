@@ -42,8 +42,8 @@ function CurConv() {
         let resultText = "";
         for (const targetCurrency of targetCurrencies) {
             let resultValue = Number(exchangeRates[targetCurrency]).toLocaleString(undefined, {
-                minimumFractionDigits: 12,
-                maximumFractionDigits: 12,
+                minimumFractionDigits: 10,
+                maximumFractionDigits: 10,
             });
             resultText += `${amount} ${baseCurrency} = ${resultValue} ${targetCurrency}\n`;
         }
@@ -101,8 +101,8 @@ function CurConv() {
                                 className="result-input mt-2 rounded-md ml-48"
                                 style={{ width: "550px"}}
                                 value={Number(exchangeRates[currency]).toLocaleString(undefined, {
-                                    minimumFractionDigits: 12,
-                                    maximumFractionDigits: 12,
+                                    minimumFractionDigits: 10,
+                                    maximumFractionDigits: 10,
                                 })}
                                 disabled
                             />
