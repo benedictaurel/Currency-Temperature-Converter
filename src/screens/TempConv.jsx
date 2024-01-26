@@ -24,15 +24,12 @@ function TempConv() {
         const temp1 = baseTempRef.current.value;
         const temp2 = targetTempRef.current.value;
 
-        // Swap the selected temperatures
         baseTempRef.current.value = temp2;
         targetTempRef.current.value = temp1;
 
-        // Trigger the conversion
         const value = parseFloat(document.getElementById("amount_one").value);
         const convertedValue = tempConverter(value, temp2, temp1);
 
-        // Update the result
         setResult(convertedValue);
     };
 
