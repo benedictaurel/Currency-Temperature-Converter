@@ -1,19 +1,3 @@
-import { motion } from "framer-motion";
-
-const cardVariants = {
-  offscreen: {
-    y: 300,
-  },
-  onscreen: {
-    y: 50,
-    rotate: -10,
-    transition: {
-      type: "spring",
-      bounce: 0.4,
-      duration: 0.8,
-    },
-  },
-};
 
 const hue = (h) => `hsl(${h}, 100%, 50%)`;
 
@@ -21,21 +5,16 @@ function Option({ emoji, hueA, hueB, to }) {
     const background = `linear-gradient(306deg, ${hue(hueA)}, ${hue(hueB)})`;
 
     return (
-        <div className="options">
-            <a href={to} className="card-link">
-                <motion.div
-                    className="card-container"
-                    initial="offscreen"
-                    whileInView="onscreen"
-                    viewport={{ once: true, amount: 0.8 }}
-                >
-                    <div className="splash" style={{ background }} />
-                    <motion.div className="card" variants={cardVariants}>
-                        {emoji}
-                    </motion.div>
-                </motion.div>
-            </a>
-        </div>
+      <div className="options">
+        <a href={to} className="card-link" data-aos="fade-up">
+            <div className="card-container">
+                <div className="splash" style={{ background }} data-aos="zoom-in"></div>
+                <div className="card" data-aos="fade-right">
+                    {emoji}
+                </div>
+            </div>
+        </a>
+      </div>
     );
 }
 
