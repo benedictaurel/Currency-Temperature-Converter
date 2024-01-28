@@ -76,7 +76,7 @@ function CurConv() {
                 </a>
             </nav>
             <div id="container" className="text-black">
-                <h1 className="title text-center text-white">Currency Exchanger</h1>
+                <h1 className="title text-white">Currency Exchanger</h1>
                 <div className="curtemp">
                     <select id="cur-input" onChange={handleBaseCurrencyChange} value={baseCurrency}>
                         <option value="USD">USD</option>

@@ -142,6 +142,7 @@ body {
     font-size: 3rem;
     font-weight: 600;
     margin-bottom: 20px;
+    text-align: center;
 }
 
 .swap {
@@ -263,7 +264,7 @@ body {
     .card-container {
         width: 100%;
         height: 75%;
-        margin-bottom: 0;
+        margin-bottom: 125px;
     }
   
     .card {
@@ -276,7 +277,9 @@ body {
     }
 
     .splash {
-        display: none;
+        width: 500px;
+        height: 350px;
+        margin-left: -150px;
     }
   
     .options {
