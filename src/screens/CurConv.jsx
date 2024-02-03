@@ -37,15 +37,6 @@ function CurConv() {
         setLastUpdated(data.date);
     };
 
-    useEffect(() => {
-        for (const targetCurrency of targetCurrencies) {
-            let resultValue = Number(exchangeRates[targetCurrency]).toLocaleString(undefined, {
-                minimumFractionDigits: 10,
-                maximumFractionDigits: 10,
-            });
-        }
-    }, [amount, baseCurrency, exchangeRates, targetCurrencies]);
-
     const handleBaseCurrencyChange = (e) => {
         const selectedBaseCurrency = e.target.value;
         setBaseCurrency(selectedBaseCurrency);
