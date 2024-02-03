@@ -95,9 +95,6 @@ function TempConv() {
     
         const conversionFunction = conversions[selectedBaseTemp][selectedTargetTemp];
         if (conversionFunction) {
-            const formula = conversionFunction.toString().match(/\(([^)]+)\)/)[1];
-            setEquation(`Formula: ${formula}`);
-            
             const convertedValue = conversionFunction(value);
             const roundedValue = parseFloat(convertedValue.toFixed(4));
             return roundedValue;
