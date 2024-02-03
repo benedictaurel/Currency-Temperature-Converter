@@ -5,7 +5,6 @@ const hue = (h) => `hsl(${h}, 100%, 50%)`;
 function CurConv() {
     const background = `linear-gradient(306deg, ${hue(60)}, ${hue(90)})`;
 
-    const [result, setResult] = useState(null);
     const [baseCurrency, setBaseCurrency] = useState("IDR");
     const [targetCurrencies, setTargetCurrencies] = useState(["USD", "BTC", "JPY"]);
     const [exchangeRates, setExchangeRates] = useState({
@@ -39,15 +38,12 @@ function CurConv() {
     };
 
     useEffect(() => {
-        let resultText = "";
         for (const targetCurrency of targetCurrencies) {
             let resultValue = Number(exchangeRates[targetCurrency]).toLocaleString(undefined, {
                 minimumFractionDigits: 10,
                 maximumFractionDigits: 10,
             });
-            resultText += `${amount} ${baseCurrency} = ${resultValue} ${targetCurrency}\n`;
         }
-        setResult(resultText);
     }, [amount, baseCurrency, exchangeRates, targetCurrencies]);
 
     const handleBaseCurrencyChange = (e) => {
